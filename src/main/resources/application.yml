@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: DEVOPS-BACK
+  profiles:
+    active: dev
