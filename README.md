@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/sebastian-medinaOch/reactive_programming">
-    <img src="person/src/main/resources/static/logo.jpg" alt="Logo" width="340" height="130">
+    <img src="src/main/resources/static/logo.jpg" alt="Logo" width="340" height="130">
   </a>
 
 <h3 align="center">reactive-programming</h3>
