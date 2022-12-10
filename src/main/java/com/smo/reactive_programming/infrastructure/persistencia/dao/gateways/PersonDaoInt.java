@@ -5,6 +5,4 @@ import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 public interface PersonDaoInt extends ReactiveMongoRepository<PersonEntity, String> {
 
-
-
 }
