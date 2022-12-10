@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class Person {
 
-    private Long personId;
+    private String personId;
     private String clientName;
     private String clientLastName;
     private String clientYear;
