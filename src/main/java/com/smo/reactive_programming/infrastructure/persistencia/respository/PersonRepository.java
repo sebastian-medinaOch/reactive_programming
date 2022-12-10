@@ -17,4 +17,12 @@ public class PersonRepository implements PersonRepositoryInt {
     public Mono<PersonEntity> savePerson(PersonEntity personEntity) {
         return personDaoInt.save(personEntity);
     }
+
+    public Mono<Void> deletePersonByClientNumDoc(PersonEntity personEntity) {
+        return personDaoInt.delete(personEntity);
+    }
+    public Mono<PersonEntity> findByClientNumDoc(String clientNumDoc){
+        return personDaoInt.findByClientNumDoc(clientNumDoc);
+    }
+
 }

@@ -13,4 +13,13 @@ public class PersonUseCase {
     public Mono<PersonEntity> createPerson(PersonEntity personEntity) {
         return personRepositoryInt.savePerson(personEntity);
     }
+
+    public Mono<Void> deletePersonByClientNumDoc(PersonEntity personEntity) {
+        return personRepositoryInt.deletePersonByClientNumDoc(personEntity);
+    }
+
+    public Mono<PersonEntity> findByClientNumDoc(String clientNumDoc) {
+        return personRepositoryInt.findByClientNumDoc(clientNumDoc);
+    }
+
 }

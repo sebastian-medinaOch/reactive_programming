@@ -1,6 +1,7 @@
 package com.smo.reactive_programming.infrastructure.configuration;
 
 import com.smo.reactive_programming.application.services.ServiceCreatePerson;
+import com.smo.reactive_programming.application.services.ServiceDeletePerson;
 import com.smo.reactive_programming.application.util.PersonRepositoryBuild;
 import com.smo.reactive_programming.domain.gateways.PersonRepositoryInt;
 import com.smo.reactive_programming.domain.usecase.PersonUseCase;
@@ -14,6 +15,11 @@ public class BeanConfiguration {
     public ServiceCreatePerson serviceCreatePerson(PersonUseCase personUseCase,
                                                    PersonRepositoryBuild personRepositoryBuild) {
         return new ServiceCreatePerson(personUseCase, personRepositoryBuild);
+    }
+
+    @Bean
+    public ServiceDeletePerson serviceDeletePerson(PersonUseCase personUseCase){
+        return new ServiceDeletePerson(personUseCase);
     }
 
     @Bean
