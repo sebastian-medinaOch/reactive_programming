@@ -6,8 +6,6 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
-
 @RequiredArgsConstructor
 public class PersonUseCase {
 
@@ -27,5 +25,9 @@ public class PersonUseCase {
 
     public Flux<PersonEntity> getPersons() {
         return personRepositoryInt.getPersons();
+    }
+
+    public Mono<PersonEntity> getPersonByPersonId(String personId){
+        return personRepositoryInt.getPersonByPersonId(personId);
     }
 }
