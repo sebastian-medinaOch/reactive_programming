@@ -3,6 +3,7 @@ package com.smo.reactive_programming.infrastructure.configuration;
 import com.smo.reactive_programming.application.services.ServiceCreatePerson;
 import com.smo.reactive_programming.application.services.ServiceDeletePerson;
 import com.smo.reactive_programming.application.services.ServicesGetPersonByNumDoc;
+import com.smo.reactive_programming.application.services.ServicesGetPersons;
 import com.smo.reactive_programming.application.util.PersonRepositoryBuild;
 import com.smo.reactive_programming.domain.gateways.PersonRepositoryInt;
 import com.smo.reactive_programming.domain.usecase.PersonUseCase;
@@ -38,6 +39,11 @@ public class BeanConfiguration {
     public ServicesGetPersonByNumDoc servicesGetPerson(PersonUseCase personUseCase,
                                                        PersonRepositoryBuild personRepositoryBuild){
         return new ServicesGetPersonByNumDoc(personUseCase, personRepositoryBuild);
+    }
+
+    @Bean
+    public ServicesGetPersons servicesGetPersons(PersonUseCase personUseCase, PersonRepositoryBuild personRepositoryBuild){
+        return new ServicesGetPersons(personUseCase, personRepositoryBuild);
     }
 
 }

@@ -5,7 +5,10 @@ import com.smo.reactive_programming.infrastructure.persistencia.dao.gateways.Per
 import com.smo.reactive_programming.infrastructure.persistencia.entity.PersonEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.ArrayList;
 
 @Repository
 @RequiredArgsConstructor
@@ -23,6 +26,11 @@ public class PersonRepository implements PersonRepositoryInt {
     }
     public Mono<PersonEntity> findByClientNumDoc(String clientNumDoc){
         return personDaoInt.findByClientNumDoc(clientNumDoc);
+    }
+
+    @Override
+    public Flux<PersonEntity> getPersons() {
+        return personDaoInt.findAll();
     }
 
 }
