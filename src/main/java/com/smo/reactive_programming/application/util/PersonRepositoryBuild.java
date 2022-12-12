@@ -5,8 +5,6 @@ import com.smo.reactive_programming.domain.model.Person;
 import com.smo.reactive_programming.infrastructure.persistencia.entity.PersonEntity;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
-
 public class PersonRepositoryBuild {
 
     public Mono<Person> buildPersonComplete(PersonEntity personEntity) {
@@ -27,13 +25,13 @@ public class PersonRepositoryBuild {
 
     public Person buildPersonNotMono(PersonEntity personEntity) {
         return Person.builder().personId(personEntity.getPersonId())
-                        .clientName(personEntity.getClientName())
-                        .clientLastName(personEntity.getClientLastName())
-                        .clientYear(personEntity.getClientYear())
-                        .clientCity(personEntity.getClientCity())
-                        .clientTypeDoc(personEntity.getClientTypeDoc())
-                        .clientNumDoc(personEntity.getClientNumDoc())
-                        .build();
+                .clientName(personEntity.getClientName())
+                .clientLastName(personEntity.getClientLastName())
+                .clientYear(personEntity.getClientYear())
+                .clientCity(personEntity.getClientCity())
+                .clientTypeDoc(personEntity.getClientTypeDoc())
+                .clientNumDoc(personEntity.getClientNumDoc())
+                .build();
     }
 
     public Mono<PersonEntity> buildPersonEntity(PersonRequest personRequest) {
@@ -48,18 +46,16 @@ public class PersonRepositoryBuild {
         return Mono.just(personBuild);
     }
 
-    public Mono<ArrayList<Person>> buildAllPersons(PersonEntity personEntities) {
-        Mono<ArrayList<Person>> personArrayList = Mono.just(new ArrayList<>());
+    public Mono<PersonEntity> buildPersonEntityFull(PersonEntity personEntityDataBase, PersonRequest personRequest) {
+        personEntityDataBase.setClientName(personRequest.getClientName());
+        personEntityDataBase.setClientLastName(personRequest.getClientLastName());
+        personEntityDataBase.setClientYear(personRequest.getClientYear());
+        personEntityDataBase.setClientCity(personRequest.getClientCity());
+        personEntityDataBase.setClientTypeDoc(personRequest.getClientTypeDoc());
+        personEntityDataBase.setClientNumDoc(personRequest.getClientNumDoc());
 
-        return Mono.just(personEntities)
-                .flatMap(personEntity -> personArrayList.doOnNext(e -> buildPerson(personEntities)
-                        .doOnNext(e::add)));
-        /*ArrayList<Person> personArrayList = new ArrayList<>();
-        for (PersonEntity personEntity : personEntities) {
-            Person person = buildPerson(personEntity);
-            personArrayList.add(person);
-        }
-        return personArrayList;*/
+        return Mono.just(personEntityDataBase);
     }
+
 
 }
