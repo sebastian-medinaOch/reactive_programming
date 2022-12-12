@@ -10,8 +10,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 public class MonolitoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MonolitoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MonolitoApplication.class, args);
+    }
 
 }
