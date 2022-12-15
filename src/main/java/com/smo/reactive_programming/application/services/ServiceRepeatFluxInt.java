@@ -1,6 +1,6 @@
 package com.smo.reactive_programming.application.services;
 
-import com.smo.reactive_programming.application.gateways.GetRepeatFlux;
+import com.smo.reactive_programming.application.gateways.GetRepeatFluxInt;
 import com.smo.reactive_programming.application.util.PersonRepositoryBuild;
 import com.smo.reactive_programming.domain.model.Person;
 import com.smo.reactive_programming.domain.usecase.PersonUseCase;
@@ -12,12 +12,12 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 
 @RequiredArgsConstructor
-public class ServiceRepeatFlux implements GetRepeatFlux {
+public class ServiceRepeatFluxInt implements GetRepeatFluxInt {
 
     private final PersonUseCase personUseCase;
     private final PersonRepositoryBuild personRepositoryBuild;
 
-    private static final Logger log = LoggerFactory.getLogger(ServiceRepeatFlux.class);
+    private static final Logger log = LoggerFactory.getLogger(ServiceRepeatFluxInt.class);
 
     @Override
     public Mono<Person> getRepeatPerson(String clientNumDoc) {

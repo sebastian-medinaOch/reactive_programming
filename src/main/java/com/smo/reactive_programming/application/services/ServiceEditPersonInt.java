@@ -1,6 +1,6 @@
 package com.smo.reactive_programming.application.services;
 
-import com.smo.reactive_programming.application.gateways.EditPerson;
+import com.smo.reactive_programming.application.gateways.EditPersonInt;
 import com.smo.reactive_programming.application.request.PersonRequest;
 import com.smo.reactive_programming.application.util.PersonRepositoryBuild;
 import com.smo.reactive_programming.domain.model.Person;
@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
-public class ServiceEditPerson implements EditPerson {
+public class ServiceEditPersonInt implements EditPersonInt {
 
     private final PersonUseCase personUseCase;
     private final PersonRepositoryBuild personRepositoryBuild;

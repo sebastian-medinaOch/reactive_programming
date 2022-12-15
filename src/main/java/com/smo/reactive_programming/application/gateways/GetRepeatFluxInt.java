@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
-public interface GetRepeatFlux {
+public interface GetRepeatFluxInt {
 
     Mono<Person> getRepeatPerson(String clientNumDoc);
 

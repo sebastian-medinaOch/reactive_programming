@@ -45,15 +45,15 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public ServiceEditPerson serviceEditPerson(PersonUseCase personUseCase,
-                                               PersonRepositoryBuild personRepositoryBuild) {
-        return new ServiceEditPerson(personUseCase, personRepositoryBuild);
+    public ServiceEditPersonInt serviceEditPerson(PersonUseCase personUseCase,
+                                                  PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceEditPersonInt(personUseCase, personRepositoryBuild);
     }
 
     @Bean
-    public ServiceRepeatFlux serviceRepeatFlux(PersonUseCase personUseCase,
-                                               PersonRepositoryBuild personRepositoryBuild) {
-        return new ServiceRepeatFlux(personUseCase, personRepositoryBuild);
+    public ServiceRepeatFluxInt serviceRepeatFlux(PersonUseCase personUseCase,
+                                                  PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceRepeatFluxInt(personUseCase, personRepositoryBuild);
     }
 
 }
