@@ -50,4 +50,10 @@ public class BeanConfiguration {
         return new ServiceEditPerson(personUseCase, personRepositoryBuild);
     }
 
+    @Bean
+    public ServiceRepeatFlux serviceRepeatFlux(PersonUseCase personUseCase,
+                                               PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceRepeatFlux(personUseCase, personRepositoryBuild);
+    }
+
 }
