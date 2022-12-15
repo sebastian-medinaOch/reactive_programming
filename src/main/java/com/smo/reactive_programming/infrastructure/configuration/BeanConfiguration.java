@@ -56,4 +56,10 @@ public class BeanConfiguration {
         return new ServiceRepeatFluxInt(personUseCase, personRepositoryBuild);
     }
 
+    @Bean
+    public ServicesGetFilterForAge servicesGetFilterForAge(PersonUseCase personUseCase,
+                                                  PersonRepositoryBuild personRepositoryBuild) {
+        return new ServicesGetFilterForAge(personUseCase, personRepositoryBuild);
+    }
+
 }
