@@ -1,6 +1,6 @@
 package com.smo.reactive_programming.infrastructure.rest.controller;
 
-import com.smo.reactive_programming.application.gateways.EditPerson;
+import com.smo.reactive_programming.application.gateways.EditPersonInt;
 import com.smo.reactive_programming.application.request.PersonRequest;
 import com.smo.reactive_programming.domain.answer.AnswerData;
 import com.smo.reactive_programming.domain.answer.DataResponse;
@@ -20,7 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EndpointEditPerson {
 
-    private final EditPerson editPerson;
+    private final EditPersonInt editPerson;
 
     @PutMapping("/editPerson")
     public Mono<ResponseEntity<AnswerData>> editPerson(@RequestBody PersonRequest personRequest) {

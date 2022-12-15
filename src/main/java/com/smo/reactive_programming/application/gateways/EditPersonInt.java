@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
-public interface EditPerson {
+public interface EditPersonInt {
 
     Mono<Person> editPerson(PersonRequest personRequestMono);
 
