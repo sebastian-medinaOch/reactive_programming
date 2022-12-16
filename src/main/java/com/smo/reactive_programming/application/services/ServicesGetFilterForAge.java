@@ -7,9 +7,7 @@ import com.smo.reactive_programming.domain.usecase.PersonUseCase;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import reactor.core.publisher.Flux;
 
-import java.time.Duration;
 import java.util.ArrayList;
 
 @RequiredArgsConstructor
@@ -23,11 +21,15 @@ public class ServicesGetFilterForAge implements GetFilterForAgeInt {
     @Override
     public ArrayList<Person> getFilterForAge() {
         ArrayList<Person> personArrayList = new ArrayList<>();
-        personUseCase.getPersons().doOnNext(e -> {
+        personUseCase.getPersons()
+                .filter(personEntity -> Integer.parseInt(personEntity.getClientYear()) >= 10)
+                //.take(1)
+                //.takeLast(1)
+                //.skip(1)
+                .doOnNext(e -> {
                     Person person = personRepositoryBuild.buildPersonNotMono(e);
                     personArrayList.add(person);
                 })
-                .filter(personEntity -> Integer.parseInt(personEntity.getClientYear()) >= 10)
                 .subscribe(person -> log.info(person.toString()));
 
 
