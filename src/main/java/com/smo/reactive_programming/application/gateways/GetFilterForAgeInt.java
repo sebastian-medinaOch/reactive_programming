@@ -8,6 +8,6 @@ import java.util.ArrayList;
 @Service
 public interface GetFilterForAgeInt {
 
-    ArrayList<Person> getFilterForAge();
+    ArrayList<Person> getFilterForAge() throws InterruptedException;
 
 }
