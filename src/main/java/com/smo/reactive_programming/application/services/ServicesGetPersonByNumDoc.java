@@ -2,9 +2,11 @@ package com.smo.reactive_programming.application.services;
 
 import com.smo.reactive_programming.application.gateways.GetPersonByNumDocInt;
 import com.smo.reactive_programming.application.util.PersonRepositoryBuild;
+import com.smo.reactive_programming.domain.exception.BussinessException;
 import com.smo.reactive_programming.domain.model.Person;
 import com.smo.reactive_programming.domain.usecase.PersonUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -16,7 +18,9 @@ public class ServicesGetPersonByNumDoc implements GetPersonByNumDocInt {
     @Override
     public Mono<Person> getPersonByNumDoc(String clientNumDoc) {
 
-        return personUseCase.findByClientNumDoc(clientNumDoc).flatMap(personRepositoryBuild::buildPersonComplete);
+        return personUseCase.findByClientNumDoc(clientNumDoc)
+                .flatMap(personRepositoryBuild::buildPersonComplete)
+                .defaultIfEmpty(Person.builder().build());
 
     }
 
