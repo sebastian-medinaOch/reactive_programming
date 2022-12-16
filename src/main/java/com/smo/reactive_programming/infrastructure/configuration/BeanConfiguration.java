@@ -62,4 +62,10 @@ public class BeanConfiguration {
         return new ServicesGetFilterForAge(personUseCase, personRepositoryBuild);
     }
 
+    @Bean
+    public ServicesGetCombinationFlux servicesGetCombinationFlux(PersonUseCase personUseCase,
+                                                           PersonRepositoryBuild personRepositoryBuild) {
+        return new ServicesGetCombinationFlux(personUseCase, personRepositoryBuild);
+    }
+
 }
