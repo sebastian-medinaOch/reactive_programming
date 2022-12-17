@@ -1,6 +1,6 @@
 package com.smo.reactive_programming.application.services;
 
-import com.smo.reactive_programming.application.gateways.GetPersonsInt;
+import com.smo.reactive_programming.application.gateways.GetFluxToMonoInt;
 import com.smo.reactive_programming.application.util.PersonRepositoryBuild;
 import com.smo.reactive_programming.domain.model.Person;
 import com.smo.reactive_programming.domain.usecase.PersonUseCase;
@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 
 @RequiredArgsConstructor
-public class ServicesGetPersons implements GetPersonsInt {
+public class ServiceGetFluxToMono implements GetFluxToMonoInt {
 
     private final PersonUseCase personUseCase;
     private final PersonRepositoryBuild personRepositoryBuild;
@@ -25,10 +25,9 @@ public class ServicesGetPersons implements GetPersonsInt {
                     Person person = personRepositoryBuild.buildPersonNotMono(e);
                     personArrayList.add(person);
                 })
-                .count()
-                .subscribe(p-> log.info(p.toString()));
+                .collectList()
+                .subscribe(p -> log.info(p.toString()));
 
         return personArrayList;
     }
-
 }

@@ -45,9 +45,33 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public ServiceEditPerson serviceEditPerson(PersonUseCase personUseCase,
-                                               PersonRepositoryBuild personRepositoryBuild) {
-        return new ServiceEditPerson(personUseCase, personRepositoryBuild);
+    public ServiceEditPersonInt serviceEditPerson(PersonUseCase personUseCase,
+                                                  PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceEditPersonInt(personUseCase, personRepositoryBuild);
+    }
+
+    @Bean
+    public ServiceRepeatFluxInt serviceRepeatFlux(PersonUseCase personUseCase,
+                                                  PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceRepeatFluxInt(personUseCase, personRepositoryBuild);
+    }
+
+    @Bean
+    public ServicesGetFilterForAge servicesGetFilterForAge(PersonUseCase personUseCase,
+                                                  PersonRepositoryBuild personRepositoryBuild) {
+        return new ServicesGetFilterForAge(personUseCase, personRepositoryBuild);
+    }
+
+    @Bean
+    public ServicesGetCombinationFlux servicesGetCombinationFlux(PersonUseCase personUseCase,
+                                                           PersonRepositoryBuild personRepositoryBuild) {
+        return new ServicesGetCombinationFlux(personUseCase, personRepositoryBuild);
+    }
+
+    @Bean
+    public ServiceGetFluxToMono serviceGetFluxToMono(PersonUseCase personUseCase,
+                                                                 PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceGetFluxToMono(personUseCase, personRepositoryBuild);
     }
 
 }
