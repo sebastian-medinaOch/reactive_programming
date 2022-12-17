@@ -68,4 +68,10 @@ public class BeanConfiguration {
         return new ServicesGetCombinationFlux(personUseCase, personRepositoryBuild);
     }
 
+    @Bean
+    public ServiceGetFluxToMono serviceGetFluxToMono(PersonUseCase personUseCase,
+                                                                 PersonRepositoryBuild personRepositoryBuild) {
+        return new ServiceGetFluxToMono(personUseCase, personRepositoryBuild);
+    }
+
 }
